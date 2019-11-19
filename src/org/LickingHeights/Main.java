@@ -17,7 +17,7 @@ public class Main {
         keyboard = new Scanner(System.in);
 
 
-
+        do {
 
 
             System.out.println("Monday's child is fair of face,\n" +
@@ -47,7 +47,7 @@ public class Main {
 
             answer4 = keyboard.nextInt();
 
-        } 
+        } while (answer4 == 1);
     }
 
     public static int amountOfDaysinMonth(int month, int year) {
