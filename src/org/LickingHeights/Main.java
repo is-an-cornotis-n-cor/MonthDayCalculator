@@ -17,7 +17,7 @@ public class Main {
         keyboard = new Scanner(System.in);
 
 
-        do {
+
 
 
             System.out.println("Monday's child is fair of face,\n" +
@@ -47,7 +47,7 @@ public class Main {
 
             answer4 = keyboard.nextInt();
 
-        } while (answer4 == 1);
+        } 
     }
 
     public static int amountOfDaysinMonth(int month, int year) {
@@ -82,39 +82,38 @@ public class Main {
 
         if (month == 1 || month == 2) {
             month = (month + 12);
-            year--;
+             year--;
 
         }
         int yearZeroBased;
         yearZeroBased = (year / 100);
-        int zellerCongurenceThing;
-        zellerCongurenceThing = 13 * (month + 1);
+        int zellerCongurenceFormula;
+        zellerCongurenceFormula = 13 * (month + 1);
         int yearOfCentury;
         yearOfCentury = (year % 100);
 
 
         int dayOfWeek;
-        dayOfWeek = ((dayOfMonth + ((zellerCongurenceThing)/ 5) + yearOfCentury + (yearOfCentury / 4) + ((yearZeroBased) / 4) - (2 * (yearZeroBased))) % 7);
+        dayOfWeek = ((dayOfMonth + ((zellerCongurenceFormula)/ 5) + yearOfCentury + (yearOfCentury / 4) + ((yearZeroBased) / 4) + (5 * (yearZeroBased))) % 7);
         return dayOfWeek;
     }
-
     public static String MonthPoem(int dayOfWeek) {
-        if (dayOfWeek == 1) {
+        if (dayOfWeek == 2) {
             return "You were born on a Monday \n" +
                     "According to the poem you are fair of face ";
-        } else if (dayOfWeek == 2) {
+        } else if (dayOfWeek == 3) {
             return "You were born on a Tuesday \n" +
                     "According to the poem you are full of grace ";
-        } else if (dayOfWeek == 3) {
+        } else if (dayOfWeek == 4) {
             return "You were born on a Wednesday \n" +
                     "According to the poem you are full of woe ";
-        } else if (dayOfWeek == 4) {
+        } else if (dayOfWeek == 5) {
             return "You were born on a Thursday \n" +
                     "According to the poem you have far of go ";
-        } else if (dayOfWeek == 5) {
+        } else if (dayOfWeek == 6) {
             return "You were born on a Friday \n" +
                     "According to the poem you are loving and giving";
-        } else if (dayOfWeek == 6) {
+        } else if (dayOfWeek == 7) {
             return "You were born on a Saturday \n" +
                     "According to the poem you work hard for a living";
         } else {
