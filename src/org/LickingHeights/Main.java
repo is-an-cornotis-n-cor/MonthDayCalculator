@@ -5,13 +5,12 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) {
-        int dayOfWeek;
+
         int dayOfMonth;
         int month;
         int year;
-        int yearOfCentury;
 
-        int zellerCongurenceThing;
+
         int answer4;
         Scanner keyboard;
         keyboard = new Scanner(System.in);
@@ -28,13 +27,15 @@ public class Main {
                     "Saturday's child works hard for a living,\n" +
                     "But the child born on the Sabbath Day,\n" +
                     "Is fair and wise and good in every way.");
+
             System.out.println("What year were you born?");
             year = keyboard.nextInt();
             System.out.println("What month were you born?(put in a number)");
             month = keyboard.nextInt();
             System.out.println("What is the day that you were born?");
             dayOfMonth = keyboard.nextInt();
-            int answer = amountOfDaysinMonth(month, year);
+
+            int answer = amountOfDaysInMonth(month, year);
             System.out.println("There are " + answer + " days in the month");
 
 
@@ -50,7 +51,7 @@ public class Main {
         } while (answer4 == 1);
     }
 
-    public static int amountOfDaysinMonth(int month, int year) {
+    public static int amountOfDaysInMonth(int month, int year) {
         switch (month) {
             case 1:
             case 3:
@@ -68,8 +69,8 @@ public class Main {
             case 11:
                 return 30;
 
-           default:
-                if (year % 4 == 0 || year % 400 == 0) {
+            default:
+                if ((year % 100 == 0 && year % 400 == 0) || (!(year % 100 == 0) && year % 4 ==0)) {
                     return 29;
                 } else {
                     return 28;
@@ -82,7 +83,7 @@ public class Main {
 
         if (month == 1 || month == 2) {
             month = (month + 12);
-             year--;
+            year--;
 
         }
         int yearZeroBased;
@@ -94,31 +95,33 @@ public class Main {
 
 
         int dayOfWeek;
-        dayOfWeek = ((dayOfMonth + ((zellerCongurenceFormula)/ 5) + yearOfCentury + (yearOfCentury / 4) + ((yearZeroBased) / 4) + (5 * (yearZeroBased))) % 7);
+        dayOfWeek = ((dayOfMonth + ((zellerCongurenceFormula) / 5) + yearOfCentury + (yearOfCentury / 4) + ((yearZeroBased) / 4) + (5 * (yearZeroBased))) % 7);
         return dayOfWeek;
     }
+
     public static String MonthPoem(int dayOfWeek) {
-        if (dayOfWeek == 2) {
-            return "You were born on a Monday \n" +
-                    "According to the poem you are fair of face ";
-        } else if (dayOfWeek == 3) {
-            return "You were born on a Tuesday \n" +
-                    "According to the poem you are full of grace ";
-        } else if (dayOfWeek == 4) {
-            return "You were born on a Wednesday \n" +
-                    "According to the poem you are full of woe ";
-        } else if (dayOfWeek == 5) {
-            return "You were born on a Thursday \n" +
-                    "According to the poem you have far of go ";
-        } else if (dayOfWeek == 6) {
-            return "You were born on a Friday \n" +
-                    "According to the poem you are loving and giving";
-        } else if (dayOfWeek == 7) {
-            return "You were born on a Saturday \n" +
-                    "According to the poem you work hard for a living";
-        } else {
-            return "You were born on the Sabbath Day \n" +
-                    "According to the poem you are fair and wise in every way ";
+        switch (dayOfWeek) {
+            case 2:
+                return "You were born on a Monday \n" +
+                        "According to the poem you are fair of face ";
+            case 3:
+                return "You were born on a Tuesday \n" +
+                        "According to the poem you are full of grace ";
+            case 4:
+                return "You were born on a Wednesday \n" +
+                        "According to the poem you are full of woe ";
+            case 5:
+                return "You were born on a Thursday \n" +
+                        "According to the poem you have far of go ";
+            case 6:
+                return "You were born on a Friday \n" +
+                        "According to the poem you are loving and giving";
+            case 0:
+                return "You were born on a Saturday \n" +
+                        "According to the poem you work hard for a living";
+            default:
+                return "You were born on the Sabbath Day \n" +
+                        "According to the poem you are fair and wise in every way ";
         }
 
 
